@@ -174,9 +174,9 @@ def start_job():
 
 col1, col2 = st.columns([1, 3])
 with col1:
-        if st.button("Start checking", type="primary", disabled=bool(not names or (st.session_state.job is not None and st.session_state.job.get("running", False)))):
-        start_job()
-        st.rerun()
+            if st.button("Start checking", type="primary", disabled=bool(not names or (st.session_state.job is not None and st.session_state.job.get("running", False)))):
+                start_job()
+                st.rerun()
 with col2:
     if names:
         st.write(f"Estimated minimum time: about {max(0, len(names)-1) * delay:.0f} seconds, excluding network delays.")
