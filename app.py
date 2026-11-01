@@ -174,7 +174,7 @@ def start_job():
 
 col1, col2 = st.columns([1, 3])
 with col1:
-    if st.button("Start checking", type="primary", disabled=(not names) or (st.session_state.job and st.session_state.job.get("running"))):
+        if st.button("Start checking", type="primary", disabled=bool(not names or (st.session_state.job is not None and st.session_state.job.get("running", False)))):
         start_job()
         st.rerun()
 with col2:
